@@ -19,7 +19,7 @@ public class Main {
 
     public static boolean checkForPalindrome(String string) {
     	// this method uses stack and queue operations to check for palindrome.
-    	//ignore punctuation and spaces. Check if popped stack equals dequeued queue.
+    	//ignore punctuation and spaces. Check if character popped from stack equals character dequeued from queue.
 
     	LinkedList<Character> stack = new LinkedList<Character>();
     	LinkedList<Character> queue = new LinkedList<Character>();
@@ -33,19 +33,17 @@ public class Main {
     	for (int i = 0; i < lettersOnly.length(); i++) {
             queue.addLast(lettersOnly.charAt(i));
         }
-    	String reverseStack = "";
-    	String deQueue = "";
+    	char reverseStack = '\0';
+    	char deQueue = '\0';
     while (!stack.isEmpty() && !queue.isEmpty()) {
-    		reverseStack += stack.pop();
-    		deQueue += queue.removeFirst();
+    		reverseStack = stack.pop();
+    		deQueue = queue.removeFirst();
+        if (reverseStack != deQueue) {
+    	 System.out.println("No! that isn't a palindrome.");
+         return false;
         }
-    if (reverseStack.equals(deQueue)) {
-        System.out.println("Yo! that is a palindrome.");
-        return true;
-    }
-    else {
-        System.out.println("No! that isn't a palindrome.");
-        return false;
-    }
+        }
+    System.out.println("Yo! that is a palindrome.");
+    return true;
     }
 }
