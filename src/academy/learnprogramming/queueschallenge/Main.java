@@ -19,7 +19,7 @@ public class Main {
 
     public static boolean checkForPalindrome(String string) {
     	// this method uses stack and queue operations to check for palindrome.
-    	//ignore punctuation and spaces
+    	//ignore punctuation and spaces. Check if popped stack equals dequeued queue.
 
     	LinkedList<Character> stack = new LinkedList<Character>();
     	LinkedList<Character> queue = new LinkedList<Character>();
